@@ -1,0 +1,8 @@
+RewriteEngine on
+ErrorDocument 404 /
+RewriteRule ^([a-z0-9-_]+)\/([a-z0-9-_]+)\/([0-9]+)\/?$ page.php?i=$1&t=$2&cid=$3 [NC]
+RewriteRule ^([a-z0-9-_]+)\/([0-9]+)\/?$ list.php?s=$1&p=$2 [NC]
+RewriteRule ^([a-z0-9]+)\/?$ $1.php [NC]
+
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
